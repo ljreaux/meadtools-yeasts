@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/Navbar";
 import { cn } from "@/lib/utils";
+import TranslationsProvider from "@/components/TranslationsProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,15 +20,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <ThemeProvider
-        attribute="class"
-        defaultTheme="system"
-        enableSystem
-        disableTransitionOnChange
-      >
-        <Navbar />
-        <body className={cn(inter.className, "bg-secondary")}>{children}</body>
-      </ThemeProvider>
+      <TranslationsProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
+          <body className={cn(inter.className, "bg-secondary")}>
+            {children}
+          </body>
+        </ThemeProvider>
+      </TranslationsProvider>
     </html>
   );
 }

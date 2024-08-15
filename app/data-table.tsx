@@ -1,5 +1,4 @@
 "use client";
-import "@/localization/i18n";
 
 import {
   ColumnDef,
