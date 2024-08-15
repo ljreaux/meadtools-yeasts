@@ -13,7 +13,7 @@ export default async function Home() {
   const data = await getData();
   return (
     <main className="flex min-h-screen flex-col items-center justify-center mt-12">
-      <div className="container mx-auto py-10">
+      <div className="container py-10 pl-1 pr-1 md:px-6">
         <DataTable columns={columns} data={data} />
       </div>
     </main>

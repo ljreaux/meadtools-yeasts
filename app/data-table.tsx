@@ -69,25 +69,25 @@ export function DataTable<TData, TValue>({
   useEffect(() => table.getColumn("brand")?.setFilterValue(brand), [brand]);
 
   return (
-    <div className="rounded-xl p-6 border bg-background">
+    <div className="sm:rounded-xl rounded-md sm:p-6 p-0 border bg-background">
       <h1 className="text-4xl text-center p-6">Yeast Table</h1>
-      <div className="flex justify-between px-2 py-6 gap-4 items-end">
+      <div className="flex flex-col md:flex-row md:justify-between px-4 md:px-2 py-6 gap-4 md:items-end">
         <Input
           placeholder="Filter by yeast name..."
           value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
             table.getColumn("name")?.setFilterValue(event.target.value)
           }
-          className="max-w-sm"
+          className="max-w-full"
         />
-        <div className="flex gap-6 items-end">
+        <div className="flex flex-col sm:flex-row gap-6 sm:items-end ">
           <div className="flex flex-col gap-2">
             <h2>Temperature Units</h2>
             <Select
               value={tempUnit}
               onValueChange={(val: "C" | "F") => setTempUnit(val)}
             >
-              <SelectTrigger className="w-[180px]">
+              <SelectTrigger className="lg:w-[180px] w-full">
                 <SelectValue placeholder="Temperature Units" />
               </SelectTrigger>
               <SelectContent>
@@ -103,7 +103,7 @@ export function DataTable<TData, TValue>({
             value={brand}
             onValueChange={(val) => setBrand(val)}
           >
-            <SelectTrigger className="w-[180px]">
+            <SelectTrigger className="sm:w-[180px] w-full">
               <SelectValue placeholder="Filter by Brand" />
             </SelectTrigger>
             <SelectContent>
