@@ -2,9 +2,11 @@
 
 const listOrder = ["Low", "Medium", "High", "Very High"];
 
+import Translate from "@/components/Translate";
 import { Button } from "@/components/ui/button";
 import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export type Yeast = {
   id: number;
@@ -30,7 +32,7 @@ export const columns: ColumnDef<Yeast>[] = [
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
           className="-ml-2 px-1"
         >
-          Name
+          <Translate accessor="tableHeadings.name" />
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       );
@@ -45,7 +47,7 @@ export const columns: ColumnDef<Yeast>[] = [
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
           className="-ml-2 px-1"
         >
-          Nitrogen Requirement
+          <Translate accessor="tableHeadings.nitrogen_requirement" />
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       );
@@ -54,6 +56,23 @@ export const columns: ColumnDef<Yeast>[] = [
       return (
         listOrder.indexOf(rowA.original.nitrogen_requirement) -
         listOrder.indexOf(rowB.original.nitrogen_requirement)
+      );
+    },
+    cell: ({ row }) => {
+      const keys: {
+        [key: string]: string;
+      } = {
+        Low: "low",
+        Medium: "medium",
+        High: "high",
+        "Very High": "veryHigh",
+      };
+      const nitrogenRequirement = row.getValue(
+        "nitrogen_requirement"
+      ) as string;
+
+      return (
+        <Translate accessor={`nitrogenOptions.${keys[nitrogenRequirement]}`} />
       );
     },
   },
@@ -66,7 +85,7 @@ export const columns: ColumnDef<Yeast>[] = [
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
           className="-ml-2 px-1"
         >
-          Tolerance
+          <Translate accessor="tableHeadings.tolerance" />
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       );
@@ -84,7 +103,7 @@ export const columns: ColumnDef<Yeast>[] = [
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
           className="-ml-2 px-1"
         >
-          Low Temperature
+          <Translate accessor="tableHeadings.low_temp" />
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       );
@@ -107,7 +126,7 @@ export const columns: ColumnDef<Yeast>[] = [
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
           className="-ml-2 px-1"
         >
-          High Temp
+          <Translate accessor="tableHeadings.high_temp" />
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       );

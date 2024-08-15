@@ -1,4 +1,5 @@
 "use client";
+import "@/localization/i18n";
 
 import {
   ColumnDef,
@@ -31,6 +32,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { SelectGroup, SelectSeparator } from "@radix-ui/react-select";
+import { useTranslation } from "react-i18next";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -41,6 +43,7 @@ export function DataTable<TData, TValue>({
   columns,
   data,
 }: DataTableProps<TData, TValue>) {
+  const { t } = useTranslation();
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [tempUnit, setTempUnit] = useState<"C" | "F">("F");
@@ -70,10 +73,10 @@ export function DataTable<TData, TValue>({
 
   return (
     <div className="sm:rounded-xl rounded-md sm:p-6 p-0 border bg-background">
-      <h1 className="text-4xl text-center p-6">Yeast Table</h1>
+      <h1 className="text-4xl text-center p-6">{t("title")}</h1>
       <div className="flex flex-col md:flex-row md:justify-between px-4 md:px-2 py-6 gap-4 md:items-end">
         <Input
-          placeholder="Filter by yeast name..."
+          placeholder={t("searchPlaceholder")}
           value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
             table.getColumn("name")?.setFilterValue(event.target.value)
@@ -82,18 +85,18 @@ export function DataTable<TData, TValue>({
         />
         <div className="flex flex-col sm:flex-row gap-6 sm:items-end ">
           <div className="flex flex-col gap-2">
-            <h2>Temperature Units</h2>
+            <h2>{t("units.title")}</h2>
             <Select
               value={tempUnit}
               onValueChange={(val: "C" | "F") => setTempUnit(val)}
             >
               <SelectTrigger className="lg:w-[180px] w-full">
-                <SelectValue placeholder="Temperature Units" />
+                <SelectValue placeholder="°F" />
               </SelectTrigger>
               <SelectContent>
                 <SelectGroup>
-                  <SelectItem value="F">°F</SelectItem>
-                  <SelectItem value="C">°C</SelectItem>
+                  <SelectItem value="F">{t("units.fahrenheit")}</SelectItem>
+                  <SelectItem value="C">{t("units.celsius")}</SelectItem>
                 </SelectGroup>
               </SelectContent>
             </Select>
@@ -104,15 +107,19 @@ export function DataTable<TData, TValue>({
             onValueChange={(val) => setBrand(val)}
           >
             <SelectTrigger className="sm:w-[180px] w-full">
-              <SelectValue placeholder="Filter by Brand" />
+              <SelectValue placeholder={t("brandPlaceholder")} />
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
-                <SelectItem value="Lalvin">Lalvin</SelectItem>
-                <SelectItem value="Mangrove Jack">Mangrove Jack</SelectItem>
-                <SelectItem value="Red Star">Red Star</SelectItem>
-                <SelectItem value="Fermentis">Fermentis</SelectItem>
-                <SelectItem value="Other">Other</SelectItem>
+                <SelectItem value="Lalvin">{t("brands.lalvin")}</SelectItem>
+                <SelectItem value="Mangrove Jack">
+                  {t("brands.mangrove")}
+                </SelectItem>
+                <SelectItem value="Red Star">{t("brands.redstar")}</SelectItem>
+                <SelectItem value="Fermentis">
+                  {t("brands.fermentis")}
+                </SelectItem>
+                <SelectItem value="Other">{t("brands.other")}</SelectItem>
               </SelectGroup>
               <SelectSeparator />
               <Button
@@ -125,7 +132,7 @@ export function DataTable<TData, TValue>({
                   setKey(+new Date());
                 }}
               >
-                Clear
+                {t("brands.clear")}
               </Button>
             </SelectContent>
           </Select>
