@@ -12,7 +12,7 @@ async function getData(): Promise<Yeast[]> {
 export default async function Home() {
   const data = await getData();
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center justify-center mt-12">
       <div className="container mx-auto py-10">
         <DataTable columns={columns} data={data} />
       </div>
