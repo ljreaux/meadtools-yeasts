@@ -60,29 +60,29 @@ i18n
               system: 'System'
             }
           },
-          title: "Yeast Table",
-          searchPlaceholder: "Filter by yeast name...",
+          title: "Hefetabelle",
+          searchPlaceholder: "Nach Namen filtern....",
           units: {
-            title: 'Temperature Units',
+            title: 'Temperatureinheiten',
             celsius: '°C',
             fahrenheit: '°F'
           },
-          brandPlaceholder: "Filter by brand...",
+          brandPlaceholder: "Nach Marke filtern...",
           brands: {
             lalvin: 'Lalvin',
             mangrove: 'Mangrove Jack',
             fermentis: 'Fermentis',
             redstar: 'Red Star',
             other: "Andere",
-            clear: "Clear"
+            clear: "Leeren"
           },
           tableHeadings: {
             brand: "Hefehersteller",
             name: "Name",
             nitrogen_requirement: "Stickstoffbedarf",
             tolerance: "Alkoholtolerance",
-            low_temp: "Low Temperature",
-            high_temp: "High Temperature",
+            low_temp: "Niedrige Temperatur",
+            high_temp: "Hohe Temperatur",
           },
           nitrogenOptions: {
             low: "Niedrig",
