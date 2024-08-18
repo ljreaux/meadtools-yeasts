@@ -15,7 +15,7 @@ function LanguageSwitcher() {
   return (
     <div>
       <Select
-        value={i18n.language}
+        value={i18n.resolvedLanguage}
         onValueChange={(val) => {
           i18n.changeLanguage(val);
         }}
