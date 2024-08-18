@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Libre_Baskerville } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/Navbar";
 import { cn } from "@/lib/utils";
 import TranslationsProvider from "@/components/TranslationsProvider";
 
-const inter = Inter({ subsets: ["latin"] });
+const libre = Libre_Baskerville({ weight: ["400", "700"], subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "MeadTools Yeast Table",
@@ -28,7 +28,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          <body className={cn(inter.className, "bg-secondary")}>
+          <body className={cn(libre.className, "bg-secondary")}>
             {children}
           </body>
         </ThemeProvider>

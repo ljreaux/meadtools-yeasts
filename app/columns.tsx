@@ -30,7 +30,7 @@ export const columns: ColumnDef<Yeast>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="-ml-2 px-1"
+          className="-ml-2 px-1 font-extrabold"
         >
           <Translate accessor="tableHeadings.name" />
           <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -45,7 +45,7 @@ export const columns: ColumnDef<Yeast>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="-ml-2 px-1"
+          className="-ml-2 px-1 font-extrabold"
         >
           <Translate accessor="tableHeadings.nitrogen_requirement" />
           <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -83,7 +83,7 @@ export const columns: ColumnDef<Yeast>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="-ml-2 px-1"
+          className="-ml-2 px-1 font-extrabold"
         >
           <Translate accessor="tableHeadings.tolerance" />
           <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -101,7 +101,7 @@ export const columns: ColumnDef<Yeast>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="-ml-2 px-1"
+          className="-ml-2 px-1 font-extrabold"
         >
           <Translate accessor="tableHeadings.low_temp" />
           <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -124,7 +124,7 @@ export const columns: ColumnDef<Yeast>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-          className="-ml-2 px-1"
+          className="-ml-2 px-1 font-extrabold"
         >
           <Translate accessor="tableHeadings.high_temp" />
           <ArrowUpDown className="ml-2 h-4 w-4" />
