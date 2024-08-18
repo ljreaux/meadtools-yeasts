@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Yeast, columns } from "./columns";
 import { DataTable } from "./data-table";
-export const API_URL = "https://mead-tools-api.vercel.app/api";
+const API_URL = "https://mead-tools-api.vercel.app/api";
 
 async function getData(): Promise<Yeast[]> {
   const { data } = await axios.get(`${API_URL}/yeasts`);
