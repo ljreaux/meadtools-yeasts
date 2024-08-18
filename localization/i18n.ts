@@ -55,8 +55,8 @@ i18n
           greeting: "Hallo",
           navbar: {
             theme: {
-              light: 'Light',
-              dark: 'Dark',
+              light: "Hell",
+              dark: "Dunkel",
               system: 'System'
             }
           },
@@ -73,22 +73,22 @@ i18n
             mangrove: 'Mangrove Jack',
             fermentis: 'Fermentis',
             redstar: 'Red Star',
-            other: 'Other',
+            other: "Andere",
             clear: "Clear"
           },
           tableHeadings: {
-            brand: "Brand",
+            brand: "Hefehersteller",
             name: "Name",
-            nitrogen_requirement: "Nitrogen Requirement",
-            tolerance: "Tolerance",
+            nitrogen_requirement: "Stickstoffbedarf",
+            tolerance: "Alkoholtolerance",
             low_temp: "Low Temperature",
             high_temp: "High Temperature",
           },
           nitrogenOptions: {
-            low: 'Low',
-            medium: 'Medium',
-            high: 'High',
-            veryHigh: "Very High"
+            low: "Niedrig",
+            medium: "Mittel",
+            high: "Hoch",
+            veryHigh: "Sehr Hoch",
           }
         }
       }
