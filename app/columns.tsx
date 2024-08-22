@@ -21,7 +21,7 @@ export type Yeast = {
 export const columns: ColumnDef<Yeast>[] = [
   {
     accessorKey: "brand",
-    header: "Brand",
+    header: () => <Translate accessor="tableHeadings.brand" />,
   },
   {
     accessorKey: "name",
